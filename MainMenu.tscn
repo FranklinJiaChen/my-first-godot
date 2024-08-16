@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://of2uebenunfc"]
+
+[ext_resource type="Script" path="res://MainMenu.gd" id="1_762wx"]
+[ext_resource type="PackedScene" uid="uid://cypv5hsty6bpl" path="res://bg.tscn" id="2_4ka7t"]
+[ext_resource type="Script" path="res://High Score.gd" id="3_aai84"]
+
+[node name="main" type="Node2D"]
+position = Vector2(417, 195)
+script = ExtResource("1_762wx")
+
+[node name="Play" type="Button" parent="."]
+offset_left = -87.0
+offset_top = -41.0
+offset_right = 326.0
+offset_bottom = 147.0
+text = "Play"
+
+[node name="Quit" type="Button" parent="."]
+offset_left = -86.0
+offset_top = 194.0
+offset_right = 325.0
+offset_bottom = 382.0
+text = "Quit
+"
+
+[node name="BG" parent="." instance=ExtResource("2_4ka7t")]
+
+[node name="High Score" type="Label" parent="."]
+offset_left = 43.0
+offset_top = -145.0
+offset_right = 193.0
+offset_bottom = -111.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "High Score: 0"
+script = ExtResource("3_aai84")
+
+[connection signal="pressed" from="Play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="Quit" to="." method="_on_quit_pressed"]
